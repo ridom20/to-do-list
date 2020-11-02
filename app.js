@@ -146,7 +146,13 @@ app.get("/about", function (req, res) {
     res.render("about");
 })
 
-app.listen(1000, function () {
-    console.log("1000 port is on");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 1000;
+}
+app.listen(port);
+
+app.listen(port, function () {
+    console.log("Server has started!!");
 
 });
